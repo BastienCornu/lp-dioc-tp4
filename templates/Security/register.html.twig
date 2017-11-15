@@ -4,6 +4,9 @@
 {% block title 'Register' %}
 
 {% block body %}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
     {#
         FIXME:
         Affiche le formulaire d'inscription avec les champs
