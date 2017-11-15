@@ -37,5 +37,6 @@ class SecurityController extends Controller
     {
         // FIXME: Instancier le formulaire et à la soumission enregistrer le user.
         // La vue à rendre : Security/register.html.twig
+        return $this->render("Security/register.html.twig");
     }
 }

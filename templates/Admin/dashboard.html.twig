@@ -5,12 +5,20 @@
 
 {% block body %}
     {# FIXME: Afficher Hello <firstname> <lastname> #}
-    Hello John Doe
+    <strong>Hello</strong> {{ app.user.firstname }} {{ app.user.lastname }}
 
 
     {# FIXME: Lister les utilisateurs et afficher un lien de suppression #}
+    {% for u in users %}
+        <ul>
+            <li>
+                <a href={{ path("app_user_profileaction",{'id':u.id} )}}>{{ u.firstname }} {{ u.lastname }} - {{ u.email }}</a>
+                <a href={{ path("app_admin_deleteuseraction",{'id':u.id} )}}>delete</a>
+            </li>
+        </ul>
+    {% endfor %}
 
-    <ul>
+    {#<ul>
         <li>
             <a href="/profile/1">John Doe - foo@exemple.org</a>
             <a href="/admin//delete-user/1">delete</a>
@@ -20,5 +28,5 @@
             <a href="/admin//delete-user/2">delete</a>
 
         </li>
-    </ul>
+    </ul>#}
 {% endblock %}

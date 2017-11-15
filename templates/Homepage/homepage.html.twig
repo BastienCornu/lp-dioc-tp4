@@ -6,6 +6,10 @@
 {% block body %}
     <p>Welcome to TP4!</p>
 
+    {% for u in users %}
+        <strong><a href={{ path("app_user_profileaction",{'id':u.id}) }}>{{ u.firstname }} {{ u.lastname }} - {{ u.email }}</a></strong>
+    {% endfor %}
+
     {#
      FIXME:
         Lister les utilisateurs mais pas les admins.
@@ -13,10 +17,11 @@
         Au clique sur un utilisateur je suis redirigé sur sa page de profile
      #}
 
-    <ul>
+   {# <ul>
             <li>
                 <strong><a href="/profile/1">John Doe - user@exemple.com</a></strong>
                 <a href="/profile/2">Foo Bar - foo@exemple.com</a>
             </li>
     </ul>
+    #}
 {% endblock %}

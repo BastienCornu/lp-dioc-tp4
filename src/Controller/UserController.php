@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class UserController extends Controller
 {
     /**
-     * // FIXME: la route doit être /my_profile.
+     * @Route("/my_profile" , name="app_user_myprofileaction")
      */
     public function myProfileAction()
     {
@@ -17,11 +17,14 @@ class UserController extends Controller
     }
 
     /**
-     * // FIXME: la route doit être /profile/3 par exemple.
+     * @Route("/profile/{id}" , name="app_user_profileaction")
      */
     public function profileAction(User $user)
     {
         // FIXME: un utilisateur connecté qui se rend sur sa propre page est redirigé vers /my_profile
+        if($user == $this->getUser()){
+            return $this->redirect($this->generateUrl("app_user_myprofileaction"));
+        }
 
         return $this->render('User/profile.html.twig', ['user' => $user]);
     }
