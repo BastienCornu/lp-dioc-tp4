@@ -337,5 +337,8 @@
     },
     "symfony/css-selector": {
         "version": "v3.3.12"
+    },
+    "fzaninotto/faker": {
+        "version": "v1.7.1"
     }
 }
